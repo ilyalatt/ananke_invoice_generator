@@ -323,6 +323,6 @@ ASALocalRun/
 
 # Custom
 **/.DS_Store
-phantom_js
+.local-chromium
 invoices
 config.local.yaml

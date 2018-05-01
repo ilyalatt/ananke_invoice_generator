@@ -1,3 +1,4 @@
+open FSharpx
 open Config
 open Harvest
 open Report
@@ -14,14 +15,14 @@ let invoiceDateRange =
 let invoiceDate = invoiceDateRange |> snd |> (fun x -> x.NextDay().BeginningOfDay())
 let invDateStr (format: string) = invoiceDate.ToString(format)
 let invoiceFileName = invDateStr "yyyy.MM.dd"
-let invoiceFilePath = sprintf "invoices/%s.pdf" invoiceFileName
+let invoiceFilePath =  IO.combinePaths <| "invoices" <| sprintf "%s.pdf" invoiceFileName
 let isInvoiceExists = IO.File.Exists(invoiceFilePath)
 
 let getHarvestTimeEntries cfg =
     let harvestCfg = cfg $ "harvest"
     let auth = { AccountId = harvestCfg $ "account_id" |> Option.get; ApiToken = harvestCfg $ "api_token" |> Option.get }
     let harvestHttpClient = getHarvestHttpClient auth
-    do printfn "obtain harvest time entries"
+    do printfn "retrieve harvest time entries"
     let timeEntries = getTimeEntriesForTimeRange invoiceDateRange harvestHttpClient
     timeEntries
 
