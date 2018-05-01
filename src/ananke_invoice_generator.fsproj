@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFrameworks>netcoreapp2.0</TargetFrameworks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="option_converter.fs" />
+    <Compile Include="config.fs" />
+    <Compile Include="harvest.fs" />
+    <Compile Include="report.fs" />
+    <Compile Include="tmp.fs" />
+    <Compile Include="html_rasterizer.fs" />
+    <Compile Include="invoice_pdf_generator.fs" />
+    <Compile Include="program.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="phantom_js_rasterize.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="../config.yaml" />
+    <None Include="../config.local.yaml" Condition="Exists('../config.local.yaml')" />
+    <None Include="../invoice_template/**" Link="invoice_template/%(Filename)%(Extension)" />
+    <None Include="../phantom_js/*" Visible="false" />
+
+    <!--
+    <None Update="../config.yaml" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="../invoice_template/**" Link="invoice_template/%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="../phantom_js/*" Link="phantom_js/%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+    -->
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="FSharp.Core" Version="4.3.4" />
+    <PackageReference Include="FSharp.Interop.Dynamic" Version="4.0.3.130" />
+    <PackageReference Include="FSharpx.Collections" Version="1.17.0" />
+    <PackageReference Include="FSharpx.Extras" Version="2.2.1" />
+    <PackageReference Include="FluentDateTime" Version="1.14.0" />
+    <PackageReference Include="Handlebars.Net" Version="1.9.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="YamlDotNet" Version="4.3.1" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ananke_invoice_generator", "src/ananke_invoice_generator.fsproj", "{BDF13CD2-72BA-4FE2-9078-23447FA44FCC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BDF13CD2-72BA-4FE2-9078-23447FA44FCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDF13CD2-72BA-4FE2-9078-23447FA44FCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDF13CD2-72BA-4FE2-9078-23447FA44FCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDF13CD2-72BA-4FE2-9078-23447FA44FCC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

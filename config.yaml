@@ -1,0 +1,30 @@
+harvest:
+  # you can get an api token here https://id.getharvest.com/developers
+  account_id: 123456
+  api_token: 1234567.ab.CDEF
+template:
+  numbers:
+    decimal_separator: ','
+    group_separator: '.'
+
+  sender_info: |
+    sender
+    info
+  sender_bank: |
+    sender
+    bank
+    info
+  recipient_info: |
+    recipient
+    info
+  recipient_bank: |
+    recipient
+    bank
+    info
+report:
+  default_hour_rate: 1.23
+  projects:
+    # will be replaced with regex matcher
+    - name: Canonical name
+      aliases: [ Project1 (note1), Project1 (note2), Project2 ]
+      hour_rate: 123.45
