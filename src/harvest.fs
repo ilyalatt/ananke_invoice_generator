@@ -28,9 +28,10 @@ let makeTimeReq fromDate toDate page =
 
 let timeReqQuery timeReq =
     let toKvp (x, y) = KeyValuePair(x, y)
+    let dateToStr (date: DateTime) = date.ToString("s") + "Z"
     let queryParams = [
-        ("from", timeReq.From.ToString("u"))
-        ("to", timeReq.To.ToString("u"))
+        ("from", timeReq.From |> dateToStr)
+        ("to", timeReq.To |> dateToStr)
         ("page", timeReq.Page.ToString())
     ]
     use content = queryParams |> List.map toKvp |> FormUrlEncodedContent
